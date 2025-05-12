@@ -29,18 +29,18 @@ export async function POST(req: NextRequest) {
 }
 
 
-export async function PUT(req: NextResponse) {
-    try {
-      await connectToDatabase();
-      const { email } = await req.json();
-  
-      // Check if the user already exists
-      const existingUser = await favourite.findOne({ email });
-  
-      return NextResponse.json({ user: existingUser }, { status: 201 });
-    } catch (error) {
-      console.error('Error creating user preference:', error);
-      return NextResponse.json({ error: 'Failed to create user preference' }, { status: 500 });
-    }
+export async function PUT(req: NextRequest) {  // Changed NextResponse to NextRequest here
+  try {
+    await connectToDatabase();
+    const { email } = await req.json();
+
+    // Check if the user already exists
+    const existingUser = await favourite.findOne({ email });
+
+    return NextResponse.json({ user: existingUser }, { status: 200 });
+  } catch (error) {
+    console.error('Error updating user preference:', error);
+    return NextResponse.json({ error: 'Failed to update user preference' }, { status: 500 });
   }
+}
   
