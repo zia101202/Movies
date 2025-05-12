@@ -77,9 +77,9 @@ export default function Page() {
         {/* Movie Grid */}
         {allMovies ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {movies?.map((movie) => (
+            { movies.length>0 &&  movies?.map((movie) => (
               <div
-                key={movie._id}
+                key={movie?._id}
                 className="cursor-pointer rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow"
                 onClick={() => handleClick(movie)}
               >
