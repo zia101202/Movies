@@ -4,7 +4,7 @@ import { signOut, useSession } from "next-auth/react";
 function GetFav() {
     const { data: session, status } = useSession();
 async function getFav(){
- const res=await   axios.put("http://localhost:3000/api/favorite",{
+ const res=await   axios.put(`${process.env.NEXT_URL}/api/favorite`,{
 email:session?.user?.email,
     })}
 
