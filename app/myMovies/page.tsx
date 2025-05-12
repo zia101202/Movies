@@ -77,18 +77,18 @@ export default function Page() {
         {/* Movie Grid */}
         {allMovies ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {movies.map((movie) => (
+            {movies?.map((movie) => (
               <div
                 key={movie._id}
                 className="cursor-pointer rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow"
                 onClick={() => handleClick(movie)}
               >
                 <div>
-                  <Image src={movie.url} alt={movie.title} width={300} height={500} />
+                  <Image src={movie.url} alt={movie?.title} width={300} height={500} />
                 </div>
                 <div className="p-4">
-                  <h2 className="text-xl font-semibold">{movie.title}</h2>
-                  <p className="text-yellow-400 mt-1">⭐ {movie.rating}</p>
+                  <h2 className="text-xl font-semibold">{movie?.title}</h2>
+                  <p className="text-yellow-400 mt-1">⭐ {movie?.rating}</p>
                 </div>
               </div>
             ))}
