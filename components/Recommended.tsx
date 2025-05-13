@@ -115,12 +115,12 @@ console.log(recommendations);
   return (
     <div>
        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
-       {recommendations.length === 0 ? (
+       { !recommendations || recommendations.length === 0 ? (
         <div className="text-white text-center">
           <h2 className="text-2xl font-semibold mb-4">No recommendations found.</h2>
           <p className="text-gray-400">Try searching for a movie or TV show.</p>
         </div>
-      ):recommendations.map((item) => (
+      ):(recommendations.map((item) => (
         <div key={item.id} className="bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition-all duration-300">
           <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.title || item.name} className="w-full h-72 object-cover" />
           <div className="p-4">
@@ -128,7 +128,7 @@ console.log(recommendations);
             <p className="text-sm text-gray-400">Rating: {item.vote_average.toFixed(1)} / 10</p>
           </div>
         </div>
-      ))}
+      )))}
       
     </div>
     </div>
