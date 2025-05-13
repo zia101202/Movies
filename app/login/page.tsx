@@ -17,7 +17,7 @@ export default function LoginPage() {
     const res = await signIn("credentials", { email, password, redirect: false });
     if (res?.ok) {
       console.log('redirect call');
-      router.replace("/");
+      router.push("/")
     } else {
       setError("Invalid credentials");
     }
