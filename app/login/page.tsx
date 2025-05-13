@@ -43,7 +43,7 @@ export default function LoginPage() {
               <span>Login</span>
             </button>
           </form>
-          <button onClick={() => signIn("google")} className="w-full bg-gray-700 text-white p-3 rounded-lg hover:bg-gray-600 transition-colors cursor-pointer flex items-center justify-center space-x-2">
+          <button onClick={() => signIn("google" ,{ callbackUrl: "/" })} className="w-full bg-gray-700 text-white p-3 rounded-lg hover:bg-gray-600 transition-colors cursor-pointer flex items-center justify-center space-x-2">
             <UserCircle size={20} />
             <span>Login with Google</span>
           </button>

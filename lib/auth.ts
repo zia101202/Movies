@@ -42,7 +42,12 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
-
+ callbacks: {
+    async redirect({ url, baseUrl }) {
+      // Always redirect to the homepage after login
+      return baseUrl;
+    },
+  },
   session: {
     strategy: "jwt",
   },
